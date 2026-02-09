@@ -13,6 +13,10 @@ const FrontModel = () =>{
 
             <OrbitControls
                 enablePane={false}
+                maxDistance={300}
+                minDistance={150}
+                maxPolarAngle={Math.PI/2}
+                minPolarAngle={Math.PI/3}
             />
 
             <FrontLight />

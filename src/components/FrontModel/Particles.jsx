@@ -1,8 +1,12 @@
 import { useRef, useMemo } from "react";
+import { useLoader } from "@react-three/fiber";
 import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 const Particles = ({ count = 200 }) => {
   const mesh = useRef();
+  
+  const texture = useLoader(THREE.TextureLoader, '/images/smow.png');
 
   const particles = useMemo(() => {
     const temp = [];
@@ -49,9 +53,10 @@ const Particles = ({ count = 200 }) => {
       </bufferGeometry>
       <pointsMaterial
         color="#ffffff"
-        size={1}
+        size={2}
         transparent
-        opacity={0.8}
+        map={texture}
+        opacity={1.0}
         depthWrite={false}
         sizeAttenuation={true}
       />

@@ -18,11 +18,11 @@ const FrontLight = () => {
         
         {/* Main point light for overall illumination */}
         {/* <pointLight 
-            position={[50, 120, 50]} 
-            intensity={1500}
+            position={[100, 150, 0]} 
+            intensity={800}
             distance={400}
             decay={1.5}
-            color="#ffffff"
+            color="#f4d342"
         /> */}
         
         {/* Additional point light from opposite side */}
@@ -37,11 +37,11 @@ const FrontLight = () => {
         {/* Yellow spotlight for dramatic golden effect */}
         <spotLight
             ref={spotRef}
-            position={[100, 250, 80]}
+            position={[100, 120, 100]}
             angle={0.8}
             penumbra={0.5}
             color='#ffcc00'
-            intensity={39000}
+            intensity={25000}
             castShadow
             shadow-mapSize-width={2048}
             shadow-mapSize-height={2048}

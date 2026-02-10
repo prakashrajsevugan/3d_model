@@ -3,8 +3,11 @@ import { Canvas } from "@react-three/fiber";
 import { New } from "./New";
 import FrontLight from "./FrontLight";
 import Particles from "./Particles";
+import { useMediaQuery } from "react-responsive";
+
 
 const FrontModel = () =>{
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
     return(
         <Canvas 
             camera={{position:[150,150,15],fov:55}}
@@ -13,7 +16,7 @@ const FrontModel = () =>{
 
             <OrbitControls
                 enablePane={false}
-                maxDistance={300}
+                maxDistance={(!isMobile ? 300 : 400)}
                 minDistance={150}
                 maxPolarAngle={Math.PI/2}
                 minPolarAngle={Math.PI/3}

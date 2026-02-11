@@ -19,7 +19,7 @@ export function New(props) {
       <group position={[36.662, 83.883, -21.224]} scale={[0.374, 3.372, 0.277]}>
         <mesh geometry={nodes.Cube015_1.geometry} material={materials['wooden pole']} castShadow />
         <mesh geometry={nodes.Cube015_2.geometry} material={materials['wooden plank']} castShadow />
-        <PositionalAudio ref={soundRef} url="/new.mp3" distance={5} loop />
+        <PositionalAudio ref={soundRef} url="/new.mp3" distance={50} loop />
       </group>
       <mesh geometry={nodes.Cylinder.geometry} material={materials.metal} position={[8.776, 96.374, -8.955]} scale={[0.865, 0.206, 0.865]} />
       <mesh geometry={nodes.Cylinder001.geometry} material={materials.metal} position={[8.776, 94.652, -8.955]} scale={[0.865, 0.206, 0.865]} />

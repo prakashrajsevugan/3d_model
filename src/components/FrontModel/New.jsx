@@ -1,14 +1,25 @@
-import React from 'react'
-import { useGLTF } from '@react-three/drei'
+import React, { useRef, useState } from 'react'
+import { useGLTF, PositionalAudio } from '@react-three/drei'
 
 export function New(props) {
   const { nodes, materials } = useGLTF('/models/new.glb')
+  const soundRef = useRef()
+  const [audioStarted, setAudioStarted] = useState(false)
+
+  const handleClick = () => {
+    if (soundRef.current && !audioStarted) {
+      soundRef.current.play()
+      setAudioStarted(true)
+    }
+  }
+
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} onClick={handleClick}>
       <mesh geometry={nodes.Cube045.geometry} material={materials['wooden deck']} position={[61.531, 67.151, -3.123]} rotation={[-Math.PI, 0, 0]} scale={[-14.442, -0.384, -0.76]} castShadow receiveShadow />
       <group position={[36.662, 83.883, -21.224]} scale={[0.374, 3.372, 0.277]}>
         <mesh geometry={nodes.Cube015_1.geometry} material={materials['wooden pole']} castShadow />
         <mesh geometry={nodes.Cube015_2.geometry} material={materials['wooden plank']} castShadow />
+        <PositionalAudio ref={soundRef} url="/new.mp3" distance={5} loop />
       </group>
       <mesh geometry={nodes.Cylinder.geometry} material={materials.metal} position={[8.776, 96.374, -8.955]} scale={[0.865, 0.206, 0.865]} />
       <mesh geometry={nodes.Cylinder001.geometry} material={materials.metal} position={[8.776, 94.652, -8.955]} scale={[0.865, 0.206, 0.865]} />
